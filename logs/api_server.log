@@ -1,0 +1,12 @@
+{"timestamp": "2025-10-17 20:52:37,645", "level": "INFO", "name": "utils.config", "message": "Logging configured successfully"}
+{"timestamp": "2025-10-17 20:52:37,656", "level": "INFO", "name": "health_check", "message": "Logging setup successful"}
+{"timestamp": "2025-10-17 20:54:36,331", "level": "INFO", "name": "utils.config", "message": "Logging configured successfully"}
+{"timestamp": "2025-10-17 20:54:36,332", "level": "INFO", "name": "health_check", "message": "Logging setup successful"}
+{"timestamp": "2025-10-17 20:55:03,514", "level": "INFO", "name": "utils.config", "message": "Logging configured successfully"}
+{"timestamp": "2025-10-17 20:55:03,514", "level": "INFO", "name": "health_check", "message": "Logging setup successful"}
+{"timestamp": "2025-10-17 20:56:45,448", "level": "INFO", "name": "utils.config", "message": "Logging configured successfully"}
+{"timestamp": "2025-10-17 20:56:45,448", "level": "INFO", "name": "health_check", "message": "Logging setup successful"}
+{"timestamp": "2025-10-17 20:58:17,156", "level": "INFO", "name": "utils.config", "message": "Logging configured successfully"}
+{"timestamp": "2025-10-17 20:58:17,156", "level": "INFO", "name": "health_check", "message": "Logging setup successful"}
+{"timestamp": "2025-10-17 21:00:35,814", "level": "INFO", "name": "utils.config", "message": "Logging configured successfully"}
+{"timestamp": "2025-10-17 21:00:35,815", "level": "INFO", "name": "health_check", "message": "Logging setup successful"}

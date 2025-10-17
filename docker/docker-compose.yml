@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=sqlite:///data/deployment.db
+      - FLASK_ENV=production
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    depends_on:
+      - redis
+    networks:
+      - llm-deployment
+
+  evaluation:
+    build: .
+    command: python core-app/evaluation_api.py
+    ports:
+      - "5001:5000"
+    environment:
+      - DATABASE_URL=sqlite:///data/deployment.db
+      - FLASK_ENV=production
+      - LOG_LEVEL=INFO
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    networks:
+      - llm-deployment
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - llm-deployment
+    command: redis-server --appendonly yes
+
+  worker:
+    build: .
+    command: python scripts/evaluate_worker.py
+    environment:
+      - DATABASE_URL=sqlite:///data/deployment.db
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    depends_on:
+      - redis
+    networks:
+      - llm-deployment
+
+volumes:
+  redis_data:
+
+networks:
+  llm-deployment:
+    driver: bridge
