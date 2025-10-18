@@ -282,6 +282,14 @@ class APIServer:
 api_server = APIServer()
 
 
+@api_server.app.route("/")
+def index():
+    return {
+        "message": "LLM Deployment API is running.",
+        "docs": "/docs",
+        "endpoints": ["/api/request", "/api/evaluate", "/api/validate-repo"]
+    }
+    
 def create_app():
     return api_server.app
 
